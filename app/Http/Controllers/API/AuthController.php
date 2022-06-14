@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\User;
-use Carbon\Traits\Timestamp;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,14 +47,21 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $token = $user->createToken('authToken');
+        if (!$token = JWTAuth::fromUser($user)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'User not logged in'
+            ]);
+        }
+
+        // $token = $user->createToken('authToken');
 
         return response()->json([
             'status' => true,
             'message' => 'User created successfully',
             'data' => [
                 'user' => $user,
-                'token' => $token->plainTextToken
+                'token' => $token
             ]
         ]);
 
@@ -62,6 +69,12 @@ class AuthController extends Controller
 
     public function login (Request $request)
     {
+        // $credentials = $request->only('email', 'password');
+
+        // if ($token = auth()->attempt($credentials)) {
+        //     return $token;
+        // }
+        
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string',
@@ -90,14 +103,20 @@ class AuthController extends Controller
             ]);
         }
 
-        $token = $user->createToken('authToken');
+        if(!$token = JWTAuth::fromUser($user)){
+            return response()->json([
+                'status' => false,
+                'message' => 'User not logged in'
+            ]);
+        }
+        // $token = JWTAuth::fromUser($user);
 
         return response()->json([
             'status' => true,
             'message' => 'User logged in successfully',
             'data' => [
                 'user' => $user,
-                'token' => $token->plainTextToken
+                'token' => $token
             ]
         ]);
     }

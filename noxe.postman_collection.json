@@ -1,0 +1,702 @@
+{
+	"info": {
+		"name": "noxe",
+		"host": "https://transporting-heavyshippment.herokuapp.com/",
+		"main_end_point": "/api"
+	},
+	"item": [
+		{
+			"name": "login for user",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "email",
+							"description": "required|email"
+						},
+						{
+							"key": "password",
+							"description": "required|string"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/login",
+					"path": [
+						"login"
+					]
+				}
+			}
+		},
+		{
+			"name": "register a new user",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "role",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "first_name",
+							"description": "required|string"
+							 
+						},
+						{
+							"key": "last_name",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "email",
+							"description": "required|email"
+							 
+						},
+						{
+							"key": "phone",
+							"description": "nullable|string|max:11"
+							 
+						},
+						{
+							"key": "city",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "password",
+							"description": "required|min:6|confirmed"
+							 
+						},
+						{
+							"key": "password_confirmation",
+							"description": "required|min:6|confirmed"
+							 
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/register",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"register"
+					]
+				}
+			}
+		},
+		{
+			"name": "get all roles",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/roles",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"roles"
+					]
+				}
+			}
+		},
+		{
+			"name": "get one role",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/roles/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"roles",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a new role",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "name",
+							"description": "required|string"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/roles",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"roles"
+					]
+				}
+			}
+		},
+		{
+			"name": "update role",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"formdata": [
+						{
+							"key": "name",
+							"description": "required|string"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/roles/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"roles",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Delete role",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/roles/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"roles",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "het all users",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/users",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			}
+		},
+		{
+			"name": "get one user",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/users/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"users",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "create a new user",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "first_name",
+							"description": "required|string"
+							 
+						},
+						{
+							"key": "last_name",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "email",
+							"description": "required|email"
+							 
+						},
+						{
+							"key": "phone",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "city",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "password",
+							"description": "required|min:6"
+							 
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/users",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			}
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"formdata": [
+						{
+							"key": "first_name",
+							"description": "nullable|string"
+						},
+						{
+							"key": "last_name",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "email",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "phone",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "city",
+							"description": "nullable|string"
+							 
+						},
+						{
+							"key": "password",
+							"description": "nullable|string"
+							 
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/users/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"users",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/users/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"users",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "get all transportation",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/transportation",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"transportation"
+					]
+				}
+			}
+		},
+		{
+			"name": "get one transportation",
+			"request": {
+				"method": "GET",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/transportation/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"transportation",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Create transportation",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "name",
+							"description": "required|string"
+						},
+						{
+							"key": "type",
+							"description": "required|string"
+						},
+						{
+							"key": "price",
+							"description": "required|numeric"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/transportation",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"transportation"
+					]
+				}
+			}
+		},
+		{
+			"name": "Update transportation",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"formdata": [
+						{
+							"key": "name",
+							"description": "nullable|string"
+						},
+						{
+							"key": "type",
+							"description": "nullable|string"
+						},
+						{
+							"key": "price",
+							"description": "nullable|string"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/transportation/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"transportation",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Delete transportation",
+			"request": {
+				"method": "DELETE",
+				  
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/transportation/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"transportation",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "prices",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/prices",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"prices"
+					]
+				}
+			}
+		},
+		{
+			"name": "price",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/prices/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"prices",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Create price",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "from", 
+							"description": "required|string"
+						},
+						{
+							"key": "to",
+							"description": "required|string"
+						},
+						{
+							"key": "price",
+							"description": "required|numeric"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/prices",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"prices"
+					]
+				}
+			}
+		},
+		{
+			"name": "Update prices",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"formdata": [
+						{
+							"key": "from",
+							"description": "nullable|string"
+						},
+						{
+							"key": "to",
+							"description": "nullable|string"
+						},
+						{
+							"key": "price",
+							"description": "nullable|string"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/prices/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"prices",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Delete price",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/prices/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"prices",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "reservations",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/reservations",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"reservations"
+					]
+				}
+			}
+		},
+		{
+			"name": "reservation",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/reservations/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"reservations",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Create reservation",
+			"request": {
+				"method": "POST",
+				"body": {
+					"formdata": [
+						{
+							"key": "user_id",
+							"description": "required|integer"
+						},
+						{
+							"key": "transportation_id",
+							"description": "required|integer"
+						},
+						{
+							"key": "from",
+							"description": "required|string"
+						},
+						{
+							"key": "to",
+							"description": "required|string"
+						},
+						{
+							"key": "date",
+							"description": "required|date"
+						},
+						{
+							"key": "time",
+							"description": "required|string"
+						},
+						{
+							"key": "total_price",
+							"description": "required|numeric"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/reservations",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"reservations"
+					]
+				}
+			}
+		},
+		{
+			"name": "Update reservation",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"formdata": [
+						{
+							"key": "user_id",
+							"description": "required|integer"
+						},
+						{
+							"key": "transportation_id",
+							"description": "required|integer"
+						},
+						{
+							"key": "from",
+							"description": "required|string"
+						},
+						{
+							"key": "to",
+							"description": "required|string"
+						},
+						{
+							"key": "date",
+							"description": "required|date"
+						},
+						{
+							"key": "time",
+							"description": "required|string"
+						},
+						{
+							"key": "total_price",
+							"description": "required|numeric"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/reservations/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"reservations",
+						"{id}"
+					]
+				}
+			}
+		},
+		{
+			"name": "Delete reservation",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "https://transporting-heavyshippment.herokuapp.com/api/reservations/{id}",
+					"host": [
+						"https://transporting-heavyshippment.herokuapp.com/api"
+					],
+					"path": [
+						"reservations",
+						"{id}"
+					]
+				}
+			}
+		}
+	]
+}
