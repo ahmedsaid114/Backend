@@ -41,6 +41,15 @@ class PricesController extends Controller
             ]);
         }
 
+        if(Price::where('from', $request->from)
+            ->where('to', $request->to)
+            ->exists()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Price already exists'
+            ]);
+        }
+
         $price = Price::create([
             'from' => $request->from,
             'to' => $request->to,

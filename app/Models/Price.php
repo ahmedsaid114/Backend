@@ -15,7 +15,8 @@ class Price extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
+        'from',
+        'to',
         'price',
     ];
 }

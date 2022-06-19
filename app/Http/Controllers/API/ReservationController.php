@@ -37,9 +37,10 @@ class ReservationController extends Controller
             'transportation_id' => 'required|integer|exists:transportations,id',
             'from' => 'required|string',
             'to' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'total_price' => 'required|numeric',
+            'date' => 'required|string',
+            'hour' => 'required|string',
+            'minute' => 'required|string',
+            'Ampm' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -49,14 +50,20 @@ class ReservationController extends Controller
             ]);
         }
 
+        $total_price = Price::where('from', $request->from)
+            ->where('to', $request->to)
+            ->first()->price;
+
+        $time = date('H:i' , strtotime($request->hour . ':' . $request->minute . ' ' . $request->Ampm));
+
         $reservation = Reservation::create([
             'user_id' => $request->user_id,
             'transportation_id' => $request->transportation_id,
             'from' => $request->from,
             'to' => $request->to,
             'date' => $request->date,
-            'time' => $request->time,
-            'total_price' => $request->total_price,
+            'time' => $time,
+            'total_price' => $total_price,
         ]);
 
         return response()->json([
