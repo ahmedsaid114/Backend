@@ -41,8 +41,8 @@ class PricesController extends Controller
             ]);
         }
 
-        $from_to = Price::where('from' , $request->from)
-            ->where('to' , $request->to)->first();
+        $from_to = Price::where('from' , 'LIKE' , '%' . $request-> from . '%')
+            ->where('to' ,'LIKE', '%' .  $request->to . '%')->first();
 
         if($from_to){
             return response()->json([
