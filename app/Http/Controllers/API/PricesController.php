@@ -41,8 +41,8 @@ class PricesController extends Controller
             ]);
         }
 
-        $from_to = Price::where('from' , 'LIKE' , '%' . $request-> from . '%')
-            ->where('to' ,'LIKE', '%' .  $request->to . '%')->first();
+        $from_to = Price::where('LOWER(from)' , 'LIKE' , '%' . strtolower($request->from) . '%')
+            ->where('LOWER(to)' ,'LIKE', '%' .  strtolower($request->to) . '%')->first();
         
         return $from_to;
 
