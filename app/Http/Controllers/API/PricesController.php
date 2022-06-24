@@ -43,19 +43,21 @@ class PricesController extends Controller
 
         $from_to = Price::where('from' , 'LIKE' , '%' . $request-> from . '%')
             ->where('to' ,'LIKE', '%' .  $request->to . '%')->first();
+        
+        return $from_to;
 
-        if($from_to){
-            return response()->json([
-                'status' => true,
-                'message' => 'Price is Found',
-                'data' => $from_to->price
-            ]);
-        }else{
-            return response()->json([
-                'status' => false,
-                'message' => 'Price not Found',
-            ]);
-        }
+        // if($from_to){
+        //     return response()->json([
+        //         'status' => true,
+        //         'message' => 'Price is Found',
+        //         'data' => $from_to->price
+        //     ]);
+        // }else{
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => 'Price not Found',
+        //     ]);
+        // }
     }
     /**
      * Store a newly created resource in storage.
