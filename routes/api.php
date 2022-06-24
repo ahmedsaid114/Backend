@@ -47,6 +47,7 @@ Route::delete('/transportation/{id}', [TransportationController::class, 'destroy
 
 // Prices routes
 Route::get('/prices', [PricesController::class, 'index']);
+Route::get('/price_from_to', [PricesController::class, 'from_to']);
 Route::get('/prices/{id}', [PricesController::class, 'show']);
 Route::post('/prices', [PricesController::class, 'store']);
 Route::put('/prices/{id}', [PricesController::class, 'update']);

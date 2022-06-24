@@ -20,6 +20,43 @@ class PricesController extends Controller
         return $prices;
     }
 
+
+    /**
+     * get price.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function from_to(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'from' => 'required|string',
+            'to' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => $validator->errors()->all()
+            ]);
+        }
+
+        $from_to = Price::where('from' , $request->from)
+            ->where('to' , $request->to)->first();
+
+        if($from_to){
+            return response()->json([
+                'status' => true,
+                'message' => 'Price is Found',
+                'data' => $from_to->price
+            ]);
+        }else{
+            return response()->json([
+                'status' => false,
+                'message' => 'Price not Found',
+            ]);
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *
