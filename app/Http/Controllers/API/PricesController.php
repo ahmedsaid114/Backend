@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Price;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -41,8 +42,10 @@ class PricesController extends Controller
             ]);
         }
 
-        $from_to = Price::where("from" , '=' , $request->from)
-            ->where("to" ,'=',$request->to)->first();
+        // $from_to = Price::where("LOWER('from')" , '=' , strtolower($request->from))
+        //     ->where("LOWER('to')" ,'=', '%' .  strtolower($request->to))->first();
+
+        $from_to = DB::raw("SELECT * FROM `prices` WHERE prices.from ='$request->from' And prices.to = '$request->to'");
         
         return $from_to;
 
