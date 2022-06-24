@@ -34,7 +34,7 @@ class ReservationController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|integer|exists:users,id',
-            'transportation_id' => 'required|integer|exists:transportations,id',
+            // 'transportation_id' => 'required|integer|exists:transportations,id',
             'from' => 'required|string',
             'to' => 'required|string',
             'date' => 'required|string',
@@ -58,7 +58,7 @@ class ReservationController extends Controller
 
         $reservation = Reservation::create([
             'user_id' => $request->user_id,
-            'transportation_id' => $request->transportation_id,
+            'transportation_id' => 1,
             'from' => $request->from,
             'to' => $request->to,
             'date' => $request->date,
