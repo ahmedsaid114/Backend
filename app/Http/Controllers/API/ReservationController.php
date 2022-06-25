@@ -90,9 +90,9 @@ class ReservationController extends Controller
         $reservation['trucktype'] = $request->trucktype;
 
         if($credit){
-            $message = 'and Credit created successfully';
+            $message = ' and Credit added successfully';
         }else{
-            $message = '';
+            $message = ' ';
         }
 
         return response()->json([
