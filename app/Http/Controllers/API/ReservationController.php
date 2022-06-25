@@ -71,7 +71,10 @@ class ReservationController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Reservation created successfully',
-            'data' => $reservation
+            'data' => [
+                $reservation,
+                'trucktype' => $request->trucktype
+            ]
         ]);
     }
 
