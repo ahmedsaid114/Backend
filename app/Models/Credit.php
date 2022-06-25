@@ -15,6 +15,7 @@ class Credit extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'card_number',
         'card_holder',
         'exp_mm',
