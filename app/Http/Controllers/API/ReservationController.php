@@ -66,15 +66,17 @@ class ReservationController extends Controller
 
         $time = date('H:i' , strtotime($request->hour . ':' . $request->minute . ' ' . $request->Ampm));
 
-        if($request->payment_type = 'CC'){
-            $credit = Credit::create([
-                'card_number' => $request->card_number,
-                'card_holder' => $request->card_holder,
-                'exp_mm' => $request->exp_mm,
-                'exp_yy' => $request->exp_yy,
-                'cvv' => $request->cvv,
-                'user_id' => $request->user_id
-            ]);
+        if($request->payment_type){
+            if($request->payment_type == 'CC'){
+                $credit = Credit::create([
+                    'card_number' => $request->card_number,
+                    'card_holder' => $request->card_holder,
+                    'exp_mm' => $request->exp_mm,
+                    'exp_yy' => $request->exp_yy,
+                    'cvv' => $request->cvv,
+                    'user_id' => $request->user_id
+                ]);
+            }
         }
 
         $reservation = Reservation::create([
