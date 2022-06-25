@@ -67,7 +67,7 @@ class ReservationController extends Controller
         $time = date('H:i' , strtotime($request->hour . ':' . $request->minute . ' ' . $request->Ampm));
 
         if($request->payment_type = 'CC'){
-            Credit::create([
+            $credit = Credit::create([
                 'card_number' => $request->card_number,
                 'card_holder' => $request->card_holder,
                 'exp_mm' => $request->exp_mm,
@@ -88,6 +88,12 @@ class ReservationController extends Controller
         ]);
 
         $reservation['trucktype'] = $request->trucktype;
+
+        if($credit){
+            $message = 'and Credit created successfully';
+        }else{
+            $message = '';
+        }
 
         return response()->json([
             'status' => true,
