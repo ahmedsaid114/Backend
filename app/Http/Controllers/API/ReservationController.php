@@ -42,7 +42,14 @@ class ReservationController extends Controller
             'hour' => 'required|string',
             'minute' => 'required|string',
             'Ampm' => 'required|string',
-            'trucktype' => 'nullable|string'
+            'trucktype' => 'nullable|string',
+
+            'payment_type' => 'nullable|string',
+            'card_number' => 'nullable|string',
+            'card_holder' => 'nullable|string',
+            'exp_mm' => 'nullable|string',
+            'exp_yy' => 'nullable|string',
+            'cvv' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -57,6 +64,17 @@ class ReservationController extends Controller
             ->first()->price;
 
         $time = date('H:i' , strtotime($request->hour . ':' . $request->minute . ' ' . $request->Ampm));
+
+        if($request->payment_type = 'CC'){
+            Credit::create([
+                'card_number' => $request->card_number,
+                'card_holder' => $request->card_holder,
+                'exp_mm' => $request->exp_mm,
+                'exp_yy' => $request->exp_yy,
+                'cvv' => $request->cvv,
+                'user_id' => $request->user_id
+            ]);
+        }
 
         $reservation = Reservation::create([
             'user_id' => $request->user_id,

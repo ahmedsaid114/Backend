@@ -22,6 +22,7 @@ class Reservation extends Model
         'date',
         'time',
         'total_price',
+        'payment_type'
     ];
 
     /**
