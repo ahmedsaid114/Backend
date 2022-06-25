@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Models\Price;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -41,6 +42,7 @@ class ReservationController extends Controller
             'hour' => 'required|string',
             'minute' => 'required|string',
             'Ampm' => 'required|string',
+            'trucktype' => 'nullable|string'
         ]);
 
         if ($validator->fails()) {
