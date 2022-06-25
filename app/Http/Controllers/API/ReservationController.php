@@ -68,13 +68,12 @@ class ReservationController extends Controller
             'total_price' => $total_price,
         ]);
 
+        $reservation['trucktype'] = $request->trucktype;
+
         return response()->json([
             'status' => true,
             'message' => 'Reservation created successfully',
-            'data' => [
-                $reservation,
-                'trucktype' => $request->trucktype
-            ]
+            'data' => $reservation
         ]);
     }
 
